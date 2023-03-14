@@ -1,0 +1,9 @@
+elem.append(document.createTextNode(text)) 
+и
+elem.textContent = text
+рботают одинаково, т.к добавять просто текст в elem
+
+А 
+elem.innerHTML = text
+добавит текст, но если в text содержится дургой html элемент,
+то он будет добавлен именно как html

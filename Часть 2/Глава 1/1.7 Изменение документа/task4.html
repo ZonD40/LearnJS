@@ -1,0 +1,20 @@
+<body>
+	
+</body>
+
+<script>
+	const ul = document.createElement('ul');
+
+	document.body.append(ul);
+	
+	while(true) {
+		const text = prompt('Введите текст для элемента списка'),
+			  li = document.createElement('li');
+
+		li.innerText = text;
+
+		if (text === null || text === '') break;
+
+		ul.append(li);
+	}
+</script>

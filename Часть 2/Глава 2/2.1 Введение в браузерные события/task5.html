@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<style>
+		#toggler {
+			cursor: pointer;
+		}
+		#toggler span {
+			color: green;
+		}
+		#ul {
+			padding-left: 18px;
+			margin: 2px;
+			list-style-type: none;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="toggler" data-toggled=''><span>▶</span> Сладости (нажми меня)!</div>
+	<ul id="ul" style="visibility: hidden;">
+		<li>Пирожное</li>
+		<li>Пончик</li>
+		<li>Мёд</li>
+	</ul>
+
+	<script> 
+		toggler.addEventListener('click', () => {
+			const span = toggler.querySelector('span');
+
+			if (toggler.dataset.toggled) {
+				toggler.dataset.toggled = '';
+				ul.style.visibility = 'hidden';
+				span.innerHTML = '▶';
+			} else {
+				toggler.dataset.toggled = '1';
+				ul.style.visibility = 'visible';
+				span.innerHTML = '▼';
+			}
+		})
+	</script>
+
+</body>
+</html>

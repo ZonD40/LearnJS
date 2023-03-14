@@ -1,0 +1,15 @@
+<select id="genres">
+  <option value="rock">Рок</option>
+  <option value="blues" selected>Блюз</option>
+</select>
+
+<script>
+	alert(`${genres.value}: ${genres.options[genres.selectedIndex].innerHTML}`);
+	
+	const classic = new Option('Классика', 'classic', true, true);
+	genres.append(classic);
+	
+	genres.options[1].removeAttribute('selected');
+
+	alert(`${genres.value}: ${genres.options[genres.selectedIndex].innerHTML}`);
+</script>

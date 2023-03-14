@@ -1,0 +1,11 @@
+<script>
+	button.addEventListener("click", () => alert("1"));
+
+	button.removeEventListener("click", () => alert("1"));
+
+	button.onclick = () => alert(2);
+</script>
+
+Выполятся оба обработчика, т.к. removeEventListener удаляет обработчик по конкретной функции, 
+а в данном случае мы создаем новую функцию, передавая как аргумент стрелочную.
+При этом addEventListener не мешает добавить функцию через onclick

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<style>
+		#field {
+			position: relative;
+			width: 200px;
+			height: 150px;
+			border: 10px solid black;
+			background-color: #00FF00;
+			overflow: hidden;
+			cursor: pointer;
+		}
+		#ball {
+			position: absolute;
+			transition: 0.5s all;
+		}
+	</style>
+</head>
+
+<body style="height:2000px">
+
+	Нажмите на поле для перемещения мяча.
+	<br> Мяч не должен выходить за границы поля.
+
+
+	<div id="field">
+		<img src="https://ru.js.cx/clipart/ball.svg" id="ball" style="top: 0px; left: 0px;"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+		. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+	</div>
+
+	<script> 
+		field.addEventListener('click', (e) => {
+			let coordY = e.clientY - field.getBoundingClientRect().top - field.clientTop - ball.offsetHeight / 2;
+				coordX = e.clientX - field.getBoundingClientRect().left - field.clientLeft - ball.offsetWidth / 2;
+
+			
+			if (coordY < 0) coordY = 0;
+			if (coordY > field.clientHeight - ball.offsetHeight) coordY = field.clientHeight - ball.offsetHeight;
+			
+			if (coordX < 0) coordX = 0;
+			if (coordX > field.clientWidth - ball.offsetWidth) coordX = field.clientWidth - ball.offsetWidth;
+
+			ball.style.top = `${coordY}px`;
+			ball.style.left = `${coordX}px`;
+			
+		});
+	</script>
+
+</body>
+</html>

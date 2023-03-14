@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+
+		td,
+		th {
+			border: 1px solid black;
+			padding: 3px;
+			text-align: center;
+		}
+
+		th {
+			font-weight: bold;
+			background-color: #E6E6E6;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div id="calendar"></div>
+
+	<script>
+		function createCalendar(elem, year, month) {
+			const table = document.createElement('table'),
+				  daysTr = document.createElement('tr');
+
+			const days = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+			for (let i = 0; i < 7; i++) {
+				const th = document.createElement('th');
+				th.innerHTML = days[i];
+				daysTr.append(th);
+			}	  
+			table.append(daysTr);
+
+
+			const firstDay = (new Date(year, month - 1, 1)).getUTCDay(),
+				  lastDay = (new Date(year, month, 0)).getUTCDate();
+
+			let day = 1,
+				monthIsOver = false;
+				isFirstWeek = true;
+			while (true) {
+				const tr = document.createElement('tr');
+
+				for (let j = 0; j < 7; j++) {	
+					const td = document.createElement('td');
+
+					if (j < firstDay && isFirstWeek) {
+						tr.append(td);
+						continue;
+					}	
+
+					if (day <= lastDay + 1) {
+						td.innerHTML = day;
+						day++
+					} else monthIsOver = true;
+					
+					tr.append(td);
+
+				}
+				if (monthIsOver) break;
+				
+				table.append(tr);
+
+				isFirstWeek = false;
+ 			}
+
+			elem.append(table);
+		}
+
+		createCalendar(calendar, 2012, 9)
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding-right: 500px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	Hello world!
+
+
+	<script>
+		const div = document.createElement('div');
+
+		div.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nesciunt quas iure eius cumque provident ipsa deleniti ad eos consequuntur, ipsam ut illum. Deserunt, nam culpa similique minus ratione assumenda optio itaque vel commodi qui! Hic eveniet nesciunt in delectus quam fugit dicta perspiciatis expedita, eum quasi. Minima autem, sint, non vitae reiciendis aperiam eveniet blanditiis molestias voluptatibus vero qui veritatis amet error officia hic nulla? Cum, omnis laborum. Aliquam nulla ipsum repellat voluptate, maxime ducimus similique';
+		div.style.width = '25px';
+		div.style.height = '25px';
+		div.style.overflow = 'auto';
+
+		document.body.append(div);
+
+		alert(`Ширина полосы прокрутки равна ${div.offsetWidth - div.clientWidth}px`);
+	
+		div.remove();
+	</script>
+
+</body>
+</html>

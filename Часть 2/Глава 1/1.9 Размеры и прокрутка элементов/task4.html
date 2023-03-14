@@ -1,0 +1,11 @@
+Отличия между getComputedStyle(elem).width и elem.clientWidth:
+
+1. getComputedStyle(elem).width может учитывать ширину полосы прокрутки, а может и нет (в зависимости от браузера),
+а elem.clientWidth всегда учитывает ширину полосы прокрутки
+
+2. getComputedStyle(elem).width зависит от того, какое значение установлено в свойстве box-sizing
+Обычно, при верстке, его устанавливают в border-box, но оно может иметь и другое значение, что сломает скрипт!
+elem.clientWidth не зависит от box-sizing
+
+3. getComputedStyle(elem).width может вернуть значение auto, как написано в css,
+что неудобно, при написании JS.

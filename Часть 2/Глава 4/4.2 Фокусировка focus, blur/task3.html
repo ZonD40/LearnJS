@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<style>
+		#mouse {
+			display: inline-block;
+			cursor: pointer;
+			margin: 0;
+		}
+
+		#mouse:focus {
+			outline: 1px dashed black;
+		}
+	</style>
+</head>
+
+<body>
+
+	<p>Кликните по "изображению" мыши и перемещайте её с помощью клавиш со стрелками.</p>
+
+	<pre id="mouse">
+ _   _
+(q\_/p)
+ /. .\
+=\_t_/=   __
+ /   \   (
+((   ))   )
+/\) (/\  /
+\  Y  /-'
+ nn^nn
+	</pre>
+
+
+	<script>
+		mouse.tabIndex = 0;
+		mouse.style.position = 'fixed';
+
+		mouse.addEventListener('focus', () => mouse.addEventListener('keydown', handler));
+		mouse.addEventListener('blur', () => mouse.removeEventListener('keydown', handler));
+
+		function handler(e) {
+			const key = e.keyCode;
+			const coord = mouse.getBoundingClientRect();
+
+			switch (key) {
+				case 37:
+					mouse.style.left = coord.left - mouse.offsetWidth + 'px'
+					break;
+				case 38:
+					mouse.style.top = coord.top - mouse.offsetHeight + 'px'
+					break;
+				case 39:
+					mouse.style.left = coord.left + mouse.offsetWidth + 'px'
+					break;
+				case 40:
+					mouse.style.top = coord.top + mouse.offsetHeight + 'px'
+					break;
+			}
+		}
+	</script>
+
+</body>
+
+</html>
