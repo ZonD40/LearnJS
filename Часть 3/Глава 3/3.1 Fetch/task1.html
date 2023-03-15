@@ -1,0 +1,28 @@
+<!doctype html>
+<script>
+
+	async function getUsers(names) {
+		const url = 'https://api.github.com/users/';
+		const result = [];
+
+		for (let name of names) {
+			const response = await fetch(url + name);
+		
+			if (response.status != 200) {
+				result.push(null);
+			} else {
+				const user = await response.json();
+	
+				result.push(user);
+			}
+		};
+
+		
+		return result
+	}
+
+	console.log( getUsers(['iliakan', 'remy', 'no.such.users']));
+
+</script>
+
+</html>
