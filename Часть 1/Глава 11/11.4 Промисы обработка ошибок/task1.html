@@ -1,0 +1,13 @@
+
+<script>
+
+new Promise(function(resolve, reject) {
+	setTimeout(() => {
+		throw new Error("Whoops!");
+	}, 1000);
+}).catch(alert);
+
+</script>
+
+Нет, .catch не выполнится, т.к. вокруг промиса существует нявный try catch, 
+а наша ошибка происходит в асинхронном блоке setTimeout

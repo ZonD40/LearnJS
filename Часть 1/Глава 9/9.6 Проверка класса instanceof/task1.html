@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<script>
+function A() {}
+function B() {}
+
+A.prototype = B.prototype = {};
+
+let a = new A();
+
+alert( a instanceof B ); // true
+
+// Потому что instanceof проверяет, равны ли a.__proto__ и B.prototype
+// Имеем: a.__proto__ === A.prototype, а A.prototype === {}, как и B.prototype
+// Поэтому и получаем true
+
+</script>

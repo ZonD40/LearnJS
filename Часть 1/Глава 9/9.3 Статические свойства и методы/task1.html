@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<script>
+class Rabbit extends Object {
+	constructor(name) {
+		super();
+		this.name = name;
+	}
+}
+
+let rabbit = new Rabbit("Кроль");
+
+alert( rabbit.hasOwnProperty('name') ); 
+
+// Разница в том, что при наследовании Rabbit от Oject
+// у нас так же наследуются статические методы Object,
+// а при обычно создании класса Rabbit (class Rabbit)
+// он не будет иметь доступ к статическим метода Object
+
+</script>

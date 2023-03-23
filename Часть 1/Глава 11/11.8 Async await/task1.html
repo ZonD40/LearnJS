@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script>
+	async function loadJson(url) {
+		try {
+
+			const response = await fetch(url);
+
+			if (response.status == 200) {
+				return await response.json();
+			} else {
+				throw new Error(response.status);
+			}
+		} catch(e) {
+			alert(e);
+		}
+	}
+
+	loadJson('no-such-user.json');
+
+</script>
